@@ -11,28 +11,51 @@ const ContainerCardService = () => {
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!container.current) return;
+    const mm = gsap.matchMedia();
 
-    const cards = container.current.querySelectorAll(".card-service");
-
-    gsap.to(cards, {
-      y: (i) => i * -265,
-      stagger: 0.15,
-      ease: "sine.inOut",
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top 25%",
-        end: "+=1000",
-        pin: true,
-        scrub: 1,
-      },
+    mm.add("(min-width: 1024px)", () => {
+      if (!container.current) return;
+      // Animasi untuk layar besar (desktop)
+      const cards = container.current.querySelectorAll(".card-service");
+      gsap.to(cards, {
+        y: (i) => i * -265,
+        stagger: 0.15,
+        ease: "sine.inOut",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 25%",
+          end: "+=1000",
+          pin: true,
+          scrub: 1,
+        },
+      });
     });
+
+    mm.add("(max-width: 768px)", () => {
+      if (!container.current) return;
+
+      const cards = container.current.querySelectorAll(".card-service");
+      gsap.to(cards, {
+        y: (i) => (i == 0 ? i * 10 : i * -300),
+        stagger: 0.115,
+        ease: "sine.inOut",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 5%",
+          end: "+=600",
+          pin: true,
+          scrub: 1,
+        },
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
-    <div ref={container} className="h-fit ">
+    <div ref={container} className="min-h-[95dvh] md:h-fit">
       <h1 className="text-4xl text-primary font-bold">Service</h1>
-      <div className="max-h-screen">
+      <div className="max-h-[70vh] ">
         {service.map((item, index) => (
           <CardService
             i={index}

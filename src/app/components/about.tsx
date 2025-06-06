@@ -77,9 +77,22 @@ const About = () => {
   return (
     <section
       ref={about}
-      className="min-h-screen justify-center border-t-2 border-secondary flex flex-row-reverse w-full   bg-muted items-center gap-8"
+      className="min-h-screen border-t-2 border-secondary flex  md:flex-row  flex-col w-full bg-muted gap-8 justify-start md:items-center"
     >
-      <div className="w-full md:w-[55%] relative md:h-[80vh] rounded-3xl overflow-hidden">
+      <div
+        ref={container}
+        className="w-full md:w-[45%] h-[40vh] md:h-[90vh] pt-8 md:pt-15"
+      >
+        <span className="text-sm w-fit whitespace-nowrap  text-[#fff3e3]">
+          `(about Xavier)
+        </span>
+        <div className="overflow-hidden text-6xl font-medium">
+          <span className="about text-secondary text-pretty">
+            Driven by curiosity, powered by creativity —
+          </span>
+        </div>
+      </div>
+      <div className="w-full md:w-[55%] relative md:h-[80vh] rounded-3xl overflow-hidden h-[40vh]">
         <Image
           fill
           alt=""
@@ -104,16 +117,6 @@ const About = () => {
           src="/images/about-4.webp"
           className="images origin-bottom  w-full h-full absolute inset-0 z-4 object-center object-cover"
         />
-      </div>
-      <div ref={container} className="w-full md:w-[45%] md:h-[90vh] pt-15">
-        <span className="text-sm w-fit whitespace-nowrap text-[#fff3e3]">
-          `(about Xavier)
-        </span>
-        <div className="overflow-hidden text-6xl font-medium">
-          <span className="about text-secondary text-pretty">
-            Driven by curiosity, powered by creativity —
-          </span>
-        </div>
       </div>
     </section>
   );

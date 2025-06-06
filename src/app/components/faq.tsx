@@ -89,9 +89,11 @@ export default function Questions() {
   }, [activeIndex]);
 
   return (
-    <div className="w-full py-16  flex justify-center">
-      <h2 className="mb-8 w-[30%] ps-4 text-xl">Some questions</h2>
-      <div ref={container} className="w-[70%]">
+    <div className="h-full md:min-h-full w-full pt-10 pb-16 md:py-16 flex justify-center md:flex-row flex-col">
+      <h2 className="text-2xl font-bold md:font-normal mb-8 w-full md:w-[30%] md:ps-4 md:text-xl">
+        Some questions
+      </h2>
+      <div ref={container} className="w-full md:w-[70%]">
         {questions.map((item, index) => (
           <div
             key={index}

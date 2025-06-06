@@ -63,7 +63,7 @@ const Carousel = () => {
         {[...portofolio, ...portofolio].map((item, index) => (
           <div
             key={index}
-            className="min-w-1/5 shrink-0 grow-0 basis-[20%] p-3 h-full bg-[#ffffe3] rounded-xl"
+            className="min-w-1/5 shrink-0 grow-0 basis-[60%] md:basis-[20%] p-3 h-full bg-[#ffffe3] rounded-xl"
             ref={(el) => (itemRefs.current[index] = el)}
           >
             <Image

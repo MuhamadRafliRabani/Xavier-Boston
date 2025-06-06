@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#ebfa9e] text-secondary px-6 w-[98%] m-auto md:px-16 py-12 rounded-t-3xl">
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-8">
         {/* Kiri */}
         <div>
           <h1 className="text-2xl font-bold mb-4">

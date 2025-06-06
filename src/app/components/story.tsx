@@ -60,12 +60,12 @@ export default function FunFactsCard({
   }, [fact]);
 
   return (
-    <div className="p-6 rounded-xl flex justify-between gap-4 mt-4 min-h-[70vh]">
+    <div className="min-h-[80vh] p-3 md:p-6 rounded-xl justify-end flex md:justify-between md:flex-row flex-col-reverse  gap-4 md:mt-4 md:min-h-[70vh] ">
       {/* Content */}
-      <div className="flex flex-col md:flex-row justify-center gap-6 w-[70%] h-[50vh]">
+      <div className="flex flex-col md:flex-row gap-6 w-full h-[40vh] md:w-[70%] md:h-[50vh]  ">
         {/* Image */}
         <div
-          className="rounded-lg overflow-hidden border-4 border-pink-50 w-1/2"
+          className="rounded-lg min-h-[25vh] overflow-hidden border-4 border-pink-50 w-full md:w-1/2"
           ref={imageRef}
         >
           <Image
@@ -73,12 +73,12 @@ export default function FunFactsCard({
             alt="Fun Fact Image"
             width={500}
             height={500}
-            className="object-cover md:w-full"
+            className="object-cover h-full md:w-full"
           />
         </div>
 
         {/* Number & Text */}
-        <div className="bg-pink-50 p-6 rounded-lg flex flex-col items-start w-1/2">
+        <div className="bg-pink-50 p-6 rounded-lg flex flex-col items-start w-full md:w-1/2">
           {/* Rolling Number */}
           <div className="flex h-[60%] space-x-2">
             {String(fact.number)
@@ -93,18 +93,20 @@ export default function FunFactsCard({
                     ref={(el) => (numberRefs.current[index] = el)}
                     className="absolute text-[9.5em]/[0.7em] font-bold"
                   >
-                    {digit}
+                    {digit ?? 36}
                   </span>
                 </div>
               ))}
           </div>
 
           {/* Text */}
-          <p className="text-2xl text-black h-[40%] mt-auto">{fact.text}</p>
+          <p className="text-xl min-h-[120px] md:text-2xl text-black md:h-[40%] mt-auto">
+            {fact.text}
+          </p>
         </div>
       </div>
 
-      <section className="w-[20%] h-[50vh] space-y-4">
+      <section className="w-full h-[100px] md:w-[20%] nd:h-[50vh] space-y-4">
         {/* Header */}
         <div className="flex justify-between items-center w-full">
           <h2 className="text-lg font-medium">Fun Facts</h2>

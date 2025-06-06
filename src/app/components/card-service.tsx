@@ -15,19 +15,21 @@ const CardService = ({ background, description, image, title }: Service) => {
           alt={title}
           width={500}
           height={350}
-          className="rounded-xl object-cover w-full max-h-70"
+          className="rounded-xl object-cover w-full max-h-40  md:max-h-70"
         />
       </div>
 
       {/* Right Side */}
-      <div className="flex flex-col basis-[75%] items-end gap-20">
-        <h2 className="text-6xl font-extrabold text-[#161616]">{title}</h2>
+      <div className="flex flex-col basis-[75%] justify-start items-end gap-2 md:gap-20">
+        <h2 className="text-4xl md:text-6xl font-extrabold text-[#161616]">
+          {title}
+        </h2>
 
         <div className="flex flex-row-reverse gap-10">
-          <p className="text-lg max-w-xl text-[#161616] w-3/5 leading-relaxed">
+          <p className="md:text-lg max-w-xl text-[#161616] w-3/5 leading-relaxed">
             {description}
           </p>
-          <div className="text-sm text-[#161616]  gap-y-3">
+          <div className="text-sm text-[#161616] gap-y-3">
             <span className="block ">Authenticity</span>
             <span className="block ">Engagement</span>
             <span className="block ">Trust</span>
