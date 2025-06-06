@@ -89,7 +89,7 @@ export default function Questions() {
   }, [activeIndex]);
 
   return (
-    <div className="h-full md:min-h-full w-full pt-10 pb-16 md:py-16 flex justify-center md:flex-row flex-col">
+    <div className="h-full md:min-h-full w-full pt-10  pb-16 md:py-16 flex justify-center md:flex-row flex-col">
       <h2 className="text-2xl font-bold md:font-normal mb-8 w-full md:w-[30%] md:ps-4 md:text-xl">
         Some questions
       </h2>
@@ -110,6 +110,7 @@ export default function Questions() {
             </button>
 
             <div
+              // @ts-ignore
               ref={(el) => (answerRefs.current[index] = el)}
               className="overflow-hidden max-h-0"
             >

@@ -11,7 +11,7 @@ gsap.registerPlugin(Draggable);
 
 const Carousel = () => {
   const carouselRef = useRef(null);
-  const itemRefs = useRef([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -64,6 +64,7 @@ const Carousel = () => {
           <div
             key={index}
             className="min-w-1/5 shrink-0 grow-0 basis-[60%] md:basis-[20%] p-3 h-full bg-[#ffffe3] rounded-xl"
+            // @ts-ignore
             ref={(el) => (itemRefs.current[index] = el)}
           >
             <Image

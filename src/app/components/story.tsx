@@ -90,6 +90,7 @@ export default function FunFactsCard({
                   className="relative overflow-hidden w-[0.8em] h-[1em] flex justify-center"
                 >
                   <span
+                    // @ts-ignore
                     ref={(el) => (numberRefs.current[index] = el)}
                     className="absolute text-[9.5em]/[0.7em] font-bold"
                   >
