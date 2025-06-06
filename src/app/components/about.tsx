@@ -31,7 +31,6 @@ const About = () => {
         trigger: container.current,
         start: "top center",
         toggleActions: "play none none none",
-        markers: true,
       },
     });
 
@@ -42,7 +41,6 @@ const About = () => {
         end: "+=2000",
         scrub: 1,
         pin: true,
-        markers: true,
       },
     });
 

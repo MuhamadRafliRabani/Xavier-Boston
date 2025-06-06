@@ -17,7 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <ReactLenis root>
         <SmoothScroll>
-          <body className={` antialiased`}>{children}</body>
+          <body className={`antialiased text-[var(--secondary)]`}>
+            {children}
+          </body>
         </SmoothScroll>
       </ReactLenis>
     </html>

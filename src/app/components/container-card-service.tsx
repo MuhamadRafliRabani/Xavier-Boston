@@ -13,7 +13,7 @@ const ContainerCardService = () => {
   useEffect(() => {
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 1024px)", () => {
+    mm.add("(min-width: 1020px)", () => {
       if (!container.current) return;
       // Animasi untuk layar besar (desktop)
       const cards = container.current.querySelectorAll(".card-service");
@@ -23,10 +23,11 @@ const ContainerCardService = () => {
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: container.current,
-          start: "top 25%",
+          start: "top 10%",
           end: "+=1000",
           pin: true,
           scrub: 1,
+          markers: true,
         },
       });
     });
@@ -45,6 +46,7 @@ const ContainerCardService = () => {
           end: "+=600",
           pin: true,
           scrub: 1,
+          markers: true,
         },
       });
     });
