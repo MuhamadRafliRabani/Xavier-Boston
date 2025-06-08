@@ -85,9 +85,7 @@ export default function FunFactsCard({
 
   return (
     <>
-      <hr />
-
-      <h1>my story</h1>
+      <hr className="hr" />
       <section className="min-h-screen p-3 rounded-xl flex md:flex-row md:items-center flex-col-reverse gap-4">
         <div className="flex flex-col md:flex-row gap-6 w-full h-[40vh] md:w-[75%] md:h-[50vh]">
           <div className="rounded-lg min-h-[25vh] overflow-hidden bg-white backdrop-blur-3xl w-full md:w-[45%]">
