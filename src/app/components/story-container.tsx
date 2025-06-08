@@ -10,7 +10,7 @@ const facts = [
     name: "Jane Doe",
   },
   {
-    number: 10,
+    number: 76,
     text: "Matcha shops I visited while in Japan. Not including Suzukien Asakusa, the 7 level matcha gelato store in Tokyo.",
     image: "/images/2.webp",
     name: "Xavier Bostton",

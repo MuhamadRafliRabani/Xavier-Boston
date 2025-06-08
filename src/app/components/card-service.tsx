@@ -2,10 +2,15 @@
 import Image from "next/image";
 import { Service } from "../data/service";
 
-const CardService = ({ background, description, image, title }: Service) => {
+const CardService = ({ i, background, description, image, title }: Service) => {
   return (
     <div
-      style={{ transform: `translateY(70px)`, backgroundColor: background }}
+      style={
+        i != 0
+          ? { transform: `translateY(20px)`, backgroundColor: background }
+          : { backgroundColor: background }
+      }
+      key={i}
       className="card-service p-6 rounded-2xl max-h-110 flex flex-col lg:flex-row gap-4 items-center "
     >
       {/* Left Side */}

@@ -34,7 +34,6 @@
 
 body {
   background: var(--primary);
-  color: var(--secondary);
   font-family: "Satoshi", Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
@@ -58,6 +57,67 @@ body {
   @apply bg-[var(--muted)] rounded-full text-secondary size-10 text-center
 }
 
+.item {
+  @apply opacity-0 translate-y-10 translate-x-5
+}
+
+.screen-body {
+ @apply max-h-screen overflow-hidden
+}
+
 .images {
   transform-origin: bottom;
 }
+
+.splide__list {
+  margin: 0; 
+}
+
+.splide__slide {
+  height: fit-content;
+  max-width: 330px;
+  padding: 0.6rem;
+  width: fit-content; 
+  overflow: hidden;
+  background-color: #fffee3;
+  border-radius: 10px;
+  cursor: grab;
+}
+
+.splide__slide img {
+  height: 400px;
+  width: 330px !important;  
+  overflow: hidden;
+  background-color: aquamarine;
+}
+
+@media (max-width:678px) {
+  .splide__slide {
+    height: fit-content;
+    max-width: 280px;
+    padding: 0.8rem;
+    width: fit-content; 
+    overflow: hidden;
+    background-color: #fffee3;
+    border-radius: 10px;
+    cursor: grab;
+  }
+  
+  .splide__slide img {
+    height: 335px;
+    width: 300px; 
+    overflow: hidden;
+    background-color: aquamarine;
+  }
+}
+
+.hr {
+  @apply w-0 h-[1.5px] bg-black
+}
+
+#__next-build-watcher,
+.nextjs-portal {
+  display: none !important;
+}
+
+

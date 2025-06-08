@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ReactLenis from "lenis/react";
-import SmoothScroll from "./libs/smooth-scroll";
+import dynamic from "next/dynamic";
+
+const SmoothScroll = dynamic(() => import("./libs/smooth-scroll"));
 
 export const metadata: Metadata = {
   title: "Xavier Boston - Content Creator",
@@ -15,13 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactLenis root>
-        <SmoothScroll>
-          <body className={`antialiased text-[var(--secondary)]`}>
-            {children}
-          </body>
-        </SmoothScroll>
-      </ReactLenis>
+      <body className="antialiased text-[var(--secondary)]">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

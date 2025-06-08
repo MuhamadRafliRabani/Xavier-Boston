@@ -14,7 +14,9 @@ export default function SmoothScroll({
 
   useEffect(() => {
     function update(time: number) {
-      lenisRef.current?.lenis?.raf(time * 1000);
+      if (!lenisRef.current?.lenis) return;
+
+      lenisRef.current.lenis.raf(time * 1200);
     }
 
     gsap.ticker.add(update);

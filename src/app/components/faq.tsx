@@ -42,7 +42,7 @@ export default function Questions() {
       borders,
       {
         width: "100%",
-        duration: 0.6,
+        duration: 0.8,
         stagger: 0.1,
         ease: "power2.out",
       },
@@ -61,7 +61,7 @@ export default function Questions() {
 
       if (activeIndex === idx) {
         // Expand & animate text
-        const split = new SplitText(content, { type: "words" });
+        const split = new SplitText(content, { type: "lines" });
 
         el.style.maxHeight = "0px";
         const fullHeight = content.scrollHeight + "px";
@@ -71,12 +71,12 @@ export default function Questions() {
           duration: 0.5,
           ease: "power2.inOut",
         }).from(
-          split.words,
+          split.lines,
           {
             y: 20,
             opacity: 0,
-            stagger: 0.03,
-            duration: 0.5,
+            stagger: 0.3,
+            duration: 1,
             ease: "power3.out",
           },
           "<"
@@ -89,7 +89,7 @@ export default function Questions() {
   }, [activeIndex]);
 
   return (
-    <div className="h-full md:min-h-full w-full pt-10  pb-16 md:py-16 flex justify-center md:flex-row flex-col">
+    <section className="h-full md:min-h-full w-full pt-10  pb-16 md:py-16 flex justify-center md:flex-row flex-col">
       <h2 className="text-2xl font-bold md:font-normal mb-8 w-full md:w-[30%] md:ps-4 md:text-xl">
         Some questions
       </h2>
@@ -121,6 +121,6 @@ export default function Questions() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

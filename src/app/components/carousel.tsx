@@ -1,82 +1,65 @@
 "use client";
-
-import { useEffect, useRef } from "react";
+// @ts-ignore
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import "@splidejs/splide/dist/css/splide.min.css";
 import { portofolio } from "../data/carousel";
-import Image from "next/image";
 import gsap from "gsap";
-import Draggable from "gsap/Draggable";
-
-// Register plugin
-gsap.registerPlugin(Draggable);
 
 const Carousel = () => {
-  const carouselRef = useRef(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-
-    // Animasi GSAP infinite scroll ke kiri
-    const anim = gsap.to(carousel, {
-      xPercent: -50, // geser sejauh 50% dari lebar container
-      ease: "none",
-      duration: 20,
-      repeat: -1, // infinite
+  const handleMounted = (splide: any) => {
+    // Saat di-drag
+    splide.on("drag", () => {
+      gsap.to(".splide__slide", {
+        rotate: (i) => (i % 2 == 0 ? 2 : -3),
+        duration: 0.2,
+        ease: "power1.out",
+      });
     });
 
-    // Tambah Draggable biar bisa digeser manual
-    Draggable.create(carousel, {
-      type: "x",
-      inertia: true,
-      onPress: () => {
-        itemRefs.current.forEach((el, index) => {
-          gsap.to(el, {
-            rotate: index % 2 === 0 ? -8 : 8,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      },
-      onRelease: () => {
-        itemRefs.current.forEach((el) => {
-          gsap.to(el, {
-            rotate: 0,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      },
+    // Saat drag selesai
+    splide.on("dragged", () => {
+      gsap.to(".splide__slide", {
+        rotate: 0,
+        duration: 0.3,
+        ease: "power2.out",
+      });
     });
-    // Cleanup saat komponen unmount
-    return () => {
-      anim.kill();
-      Draggable.get(carousel)?.kill();
-    };
-  }, []);
-
+  };
   return (
-    <section className="overflow-hidden w-full py-5 h-110">
-      <div
-        ref={carouselRef}
-        className="flex cursor-grab space-x-4 w-full h-full"
+    <section className="min-w-fit w-full translate-x-0  h-full">
+      <Splide
+        options={{
+          type: "loop",
+          perPage: 1,
+          gap: "1rem",
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          focus: "center",
+          autoScroll: {
+            speed: 1,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+          },
+          ondrag: () => {
+            console.info("didrag");
+          },
+        }}
+        extensions={{ AutoScroll }}
+        onMounted={handleMounted}
+        className="splide"
       >
-        {[...portofolio, ...portofolio].map((item, index) => (
-          <div
-            key={index}
-            className="min-w-1/5 shrink-0 grow-0 basis-[60%] md:basis-[20%] p-3 h-full bg-[#ffffe3] rounded-xl"
-            // @ts-ignore
-            ref={(el) => (itemRefs.current[index] = el)}
-          >
-            <Image
-              src={"/images" + item}
-              alt={item}
-              width={200}
-              height={400}
-              className="object-cover rounded-xl w-full h-full"
+        {portofolio.map((src, index) => (
+          <SplideSlide key={index}>
+            <img
+              src={"/images" + src}
+              alt={`Slide ${index + 1}`}
+              className="w-[300px] md:w-full md:h-64  object-cover rounded-lg"
             />
-          </div>
+          </SplideSlide>
         ))}
-      </div>
+      </Splide>
     </section>
   );
 };
