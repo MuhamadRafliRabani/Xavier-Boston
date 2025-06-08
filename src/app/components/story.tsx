@@ -22,6 +22,7 @@ export default function FunFactsCard({
 }: Props) {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const prevRef = useRef<HTMLButtonElement>(null);
+  const hrRef = useRef<HTMLHRElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const spanRefs = useRef<HTMLSpanElement[]>([]);
 
@@ -32,6 +33,16 @@ export default function FunFactsCard({
 
   useEffect(() => {
     animateDigits(digits, spanRefs.current);
+
+    gsap.to(hrRef.current, {
+      width: "100%",
+      ease: "sine.inOut",
+      scrollTrigger: {
+        trigger: imageRef.current,
+        start: "-=100px center",
+        toggleActions: "play none none reverse",
+      },
+    });
   }, [fact.number]);
 
   const animateDigits = (digits: number[], els: HTMLSpanElement[]) => {
@@ -85,7 +96,7 @@ export default function FunFactsCard({
 
   return (
     <>
-      <hr className="hr" />
+      <hr ref={hrRef} className="hr" />
       <section className="min-h-screen p-3 rounded-xl flex md:flex-row md:items-center flex-col-reverse gap-4">
         <div className="flex flex-col md:flex-row gap-6 w-full h-[40vh] md:w-[75%] md:h-[50vh]">
           <div className="rounded-lg min-h-[25vh] overflow-hidden bg-white backdrop-blur-3xl w-full md:w-[45%]">

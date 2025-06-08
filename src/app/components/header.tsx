@@ -112,7 +112,7 @@ const Header = () => {
             )
             .to(
               headerRef.current,
-              { height: "180px", duration: 0.5, ease: "power2.inOut" },
+              { height: "180px", duration: 0.5, ease: "power1.out" },
               "+=0.15"
             )
             .to(
@@ -124,7 +124,7 @@ const Header = () => {
                 ease: "power3.inOut",
                 stagger: 0.1,
               },
-              "<=0.1"
+              "<=0.1.1"
             );
         }
 
