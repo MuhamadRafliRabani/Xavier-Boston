@@ -1,9 +1,7 @@
-// components/SmoothScroll.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
 import ReactLenis, { LenisRef } from "lenis/react";
-import gsap from "gsap";
 
 export default function SmoothScroll({
   children,
@@ -13,21 +11,28 @@ export default function SmoothScroll({
   const lenisRef = useRef<LenisRef>(null);
 
   useEffect(() => {
-    function update(time: number) {
-      if (!lenisRef.current?.lenis) return;
+    const lenis = lenisRef.current?.lenis;
 
-      lenisRef.current.lenis.raf(time * 1200);
+    function raf(time: number) {
+      if (!lenis) return;
+
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
 
-    gsap.ticker.add(update);
-
-    return () => {
-      gsap.ticker.remove(update);
-    };
+    requestAnimationFrame(raf);
   }, []);
 
   return (
-    <ReactLenis root ref={lenisRef}>
+    <ReactLenis
+      root
+      ref={lenisRef}
+      options={{
+        duration: 1.55,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      }}
+    >
       {children}
     </ReactLenis>
   );
