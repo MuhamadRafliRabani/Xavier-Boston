@@ -41,6 +41,8 @@ const Header = () => {
             duration: 0.6,
             stagger: 0.12,
             ease: "power2.out",
+            force3D: true, // GPU acceleration
+            rotationZ: 0.01,
           })
             .to(
               wraperH1.current,
@@ -73,6 +75,8 @@ const Header = () => {
             duration: 0.6,
             stagger: 0.15,
             ease: "power2.out",
+            force3D: true, // GPU acceleration
+            rotationZ: 0.01,
           })
             .to(
               wraperH1.current,
@@ -104,6 +108,8 @@ const Header = () => {
             duration: 0.7,
             stagger: 0.2,
             ease: "power3.inOut",
+            force3D: true, // GPU acceleration
+            rotationZ: 0.01,
           })
             .to(
               wraperH1.current,
@@ -121,7 +127,7 @@ const Header = () => {
                 y: "-4px",
                 opacity: 1,
                 duration: 0.3,
-                ease: "power3.inOut",
+                ease: "expo.inOut",
                 stagger: 0.1,
               },
               "<=0.1.1"
@@ -143,13 +149,13 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="w-full space-y-1 text-center overflow-hidden h-screen grid place-content-center"
+      className="header w-full space-y-1 text-center overflow-hidden h-screen grid place-content-center"
     >
-      <div ref={wraperH1} className="overflow-hidden scale-50 md:scale-15">
+      <div ref={wraperH1} className=" overflow-hidden scale-50 md:scale-15">
         <h1
           ref={name}
           style={{ transform: "translateY(200px)" }}
-          className="text-[2.7em]/[1.2em] md:text-[10.35em]/[0.9em] font-extrabold whitespace-nowrap bg-yellow-500"
+          className="line text-[2.7em]/[1.2em] md:text-[10.35em]/[0.9em] font-extrabold whitespace-nowrap bg-yellow-500"
         >
           XAVIER BOSTON
         </h1>

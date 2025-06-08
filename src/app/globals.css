@@ -125,3 +125,8 @@ body {
 }
 
 
+.header .line,
+.header .item {
+  will-change: transform;
+}
+
