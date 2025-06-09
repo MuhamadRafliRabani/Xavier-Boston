@@ -113,12 +113,12 @@ const Header = () => {
           })
             .to(
               wraperH1.current,
-              { scale: 1, duration: 0.6, ease: "power3.inOut" },
+              { scale: 1, duration: 0.8, ease: "power3.inOut" },
               "+=0.15"
             )
             .to(
               headerRef.current,
-              { height: "180px", duration: 0.5, ease: "power1.out" },
+              { height: "180px", duration: 0.7, ease: "power1.out" },
               "+=0.15"
             )
             .to(
@@ -130,7 +130,7 @@ const Header = () => {
                 ease: "expo.inOut",
                 stagger: 0.1,
               },
-              "<=0.1.1"
+              "-=0.5"
             );
         }
 

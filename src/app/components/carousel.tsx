@@ -5,6 +5,7 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { portofolio } from "../data/carousel";
 import gsap from "gsap";
+import { Fragment } from "react";
 
 const Carousel = () => {
   const handleMounted = (splide: any) => {
@@ -27,40 +28,34 @@ const Carousel = () => {
     });
   };
   return (
-    <section className="min-w-fit w-full translate-x-0  h-full">
-      <Splide
-        options={{
-          type: "loop",
-          perPage: 1,
-          gap: "1rem",
-          arrows: false,
-          pagination: false,
-          drag: "free",
-          focus: "center",
-          autoScroll: {
-            speed: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-          },
-          ondrag: () => {
-            console.info("didrag");
-          },
-        }}
-        extensions={{ AutoScroll }}
-        onMounted={handleMounted}
-        className="splide"
-      >
-        {portofolio.map((src, index) => (
-          <SplideSlide key={index}>
-            <img
-              src={"/images" + src}
-              alt={`Slide ${index + 1}`}
-              className="w-[300px] md:w-full md:h-64  object-cover rounded-lg"
-            />
-          </SplideSlide>
-        ))}
-      </Splide>
-    </section>
+    <Splide
+      options={{
+        type: "loop",
+        perPage: 1,
+        gap: "1rem",
+        arrows: false,
+        pagination: false,
+        drag: "free",
+        focus: "center",
+        autoScroll: {
+          speed: 1,
+          pauseOnHover: false,
+          pauseOnFocus: false,
+        },
+      }}
+      extensions={{ AutoScroll }}
+      onMounted={handleMounted}
+    >
+      {portofolio.map((src, index) => (
+        <SplideSlide key={index}>
+          <img
+            src={"/images" + src}
+            alt={`Slide ${index + 1}`}
+            className="w-[300px] md:w-full md:h-64 object-cover rounded-lg"
+          />
+        </SplideSlide>
+      ))}
+    </Splide>
   );
 };
 
