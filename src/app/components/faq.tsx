@@ -82,14 +82,13 @@ export default function Questions() {
           "<"
         );
       } else {
-        // Collapse
         tl.to(el, { maxHeight: 0, duration: 0.5, ease: "power2.inOut" });
       }
     });
   }, [activeIndex]);
 
   return (
-    <section className="h-full md:min-h-full w-full pt-10  pb-16 md:py-16 flex justify-center md:flex-row flex-col">
+    <section className="h-full md:min-h-full w-full py-16 flex justify-center md:flex-row flex-col mt-30">
       <h2 className="text-2xl font-bold md:font-normal mb-8 w-full md:w-[30%] md:ps-4 md:text-xl">
         Some questions
       </h2>

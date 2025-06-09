@@ -151,11 +151,11 @@ const Header = () => {
       ref={headerRef}
       className="header w-full space-y-1 text-center overflow-hidden h-screen grid place-content-center"
     >
-      <div ref={wraperH1} className=" overflow-hidden scale-50 md:scale-15">
+      <div ref={wraperH1} className="overflow-hidden scale-50 md:scale-15">
         <h1
           ref={name}
           style={{ transform: "translateY(200px)" }}
-          className="line text-[2.7em]/[1.2em] md:text-[10.35em]/[0.9em] font-extrabold whitespace-nowrap bg-yellow-500"
+          className="line text-[2.83em]/[1.2em] md:text-[10.35em]/[0.9em] font-extrabold whitespace-nowrap bg-yellow-500"
         >
           XAVIER BOSTON
         </h1>

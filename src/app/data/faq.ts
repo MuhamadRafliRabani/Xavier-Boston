@@ -20,3 +20,18 @@ export const questions = [
       "Absolutely. We love co-creation. From script to post-production, we work closely to match your brand voice while keeping the Xavier edge.",
   },
 ];
+
+export const facts = [
+  {
+    number: 31,
+    text: "Spotify playlists I've created. But I mainly listen to the blend my boyfriend and I have.",
+    image: "/images/1.webp",
+    name: "Jane Doe",
+  },
+  {
+    number: 76,
+    text: "Matcha shops I visited while in Japan. Not including Suzukien Asakusa, the 7 level matcha gelato store in Tokyo.",
+    image: "/images/2.webp",
+    name: "Xavier Bostton",
+  },
+];

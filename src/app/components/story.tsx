@@ -97,7 +97,7 @@ export default function FunFactsCard({
   return (
     <>
       <hr ref={hrRef} className="hr" />
-      <section className="min-h-screen p-3 rounded-xl flex md:flex-row md:items-center flex-col-reverse gap-4">
+      <section className="min-h-screen p-3 rounded-xl flex md:flex-row md:items-center flex-col-reverse justify-end gap-4 pt-6 md:pt-3">
         <div className="flex flex-col md:flex-row gap-6 w-full h-[40vh] md:w-[75%] md:h-[50vh]">
           <div className="rounded-lg min-h-[25vh] overflow-hidden bg-white backdrop-blur-3xl w-full md:w-[45%]">
             <Image
@@ -159,7 +159,7 @@ export default function FunFactsCard({
               onClick={() => fadeImage(false)}
               onMouseEnter={() => handleHoverBtn(prevRef, "left")}
               onMouseLeave={() => handleLeaveBtn(prevRef, "left")}
-              className="p-2 rounded-full md:max-h-9 bg-white shadow overflow-hidden"
+              className="p-2 rounded-full md:max-h-9 h-9 md:h-full bg-white shadow overflow-hidden"
             >
               <ChevronLeft className="size-5 arrow" />
               <ChevronLeft className="size-5 arrow -translate-y-5 translate-x-[30px]" />
@@ -169,7 +169,7 @@ export default function FunFactsCard({
               onClick={() => fadeImage(true)}
               onMouseEnter={() => handleHoverBtn(nextRef, "right")}
               onMouseLeave={() => handleLeaveBtn(nextRef, "right")}
-              className="p-2 rounded-full md:max-h-9 bg-white shadow overflow-hidden"
+              className="p-2 rounded-full md:max-h-9 h-9 md:h-full bg-white shadow overflow-hidden"
             >
               <ChevronRight className="size-5 arrow" />
               <ChevronRight className="size-5 arrow -translate-y-5 -translate-x-[-30px]" />

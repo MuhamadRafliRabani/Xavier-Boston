@@ -80,16 +80,16 @@ export default function Footer() {
         </div>
 
         {/* Kanan */}
-        <div className="md:basis-[85%] flex flex-col items-end min-h-[145px] justify-between">
+        <div className="-ms-2 md:ms-0 md:basis-[85%] flex flex-col items-end min-h-[145px] md:justify-between justify-end gap-10 md:gap-0">
           <div className="flex gap-4">
             <Link
               href="#"
               ref={joinRef}
               onMouseEnter={() => handleHover(joinRef)}
               onMouseLeave={() => handleLeave(joinRef)}
-              className="border border-white rounded-full px-4 py-3 overflow-hidden text-sm hover:bg-white hover:text-black transition"
+              className="border  border-white rounded-full px-4 py-3 overflow-hidden text-sm hover:bg-white hover:text-black transition"
             >
-              <p className="flex items-center justify-center gap-0.5 ">
+              <p className="flex whitespace-nowrap items-center justify-center gap-0.5 ">
                 Join the team
                 <span className="arrow">
                   <ArrowDownRight className="size-5 -translate-y-[30px] -translate-x-2" />
@@ -105,9 +105,9 @@ export default function Footer() {
               ref={contactRef}
               onMouseEnter={() => handleHover(contactRef)}
               onMouseLeave={() => handleLeave(contactRef)}
-              className="bg-white text-black rounded-full px-4 py-3 overflow-hidden text-sm font-medium hover:bg-gray-200 transition"
+              className="bg-white  text-black rounded-full px-4 py-3 overflow-hidden text-sm font-medium hover:bg-gray-200 transition"
             >
-              <p className="flex items-center justify-center gap-0.5">
+              <p className="flex whitespace-nowrap  items-center justify-center gap-0.5">
                 Contact us
                 <span className="arrow">
                   <ArrowDownRight className="size-5 -translate-y-[30px] -translate-x-2" />
