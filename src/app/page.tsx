@@ -8,7 +8,7 @@ import StoryContainer from "./components/story-container";
 
 export default function Home() {
   return (
-    <div className="max-w-screen space-y-10">
+    <section className="max-w-screen space-y-10">
       <Header />
 
       <Carousel />
@@ -20,6 +20,6 @@ export default function Home() {
         <Questions />
       </main>
       <Footer />
-    </div>
+    </section>
   );
 }
